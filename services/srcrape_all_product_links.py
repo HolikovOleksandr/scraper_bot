@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from schemas.looking_for import LookingFor
 
+
+
 def srcrape_all_product_links(product_name: LookingFor) -> list:
     """
     Scrape OLX for a given product name and return the product details.
@@ -11,7 +13,6 @@ def srcrape_all_product_links(product_name: LookingFor) -> list:
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-
     driver = webdriver.Chrome(options=options)
 
     try:
