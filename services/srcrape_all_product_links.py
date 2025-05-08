@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from schemas.looking_for import LookingFor
 
-def srcrape_all_product_links_service(product: LookingFor) -> list:
+def srcrape_all_product_links(product_name: LookingFor) -> list:
     """
     Scrape OLX for a given product name and return the product details.
     """
@@ -15,7 +15,7 @@ def srcrape_all_product_links_service(product: LookingFor) -> list:
     driver = webdriver.Chrome(options=options)
 
     try:
-        search_query = product.name.replace(" ", "-")
+        search_query = product_name.name.replace(" ", "-")
         search_url = f"https://www.olx.ua/uk/list/q-{search_query}"
         driver.get(search_url)
 

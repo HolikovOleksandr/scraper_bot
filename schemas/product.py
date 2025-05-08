@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from schemas.link import Link
 
 class Product(BaseModel):
     """
@@ -8,9 +9,11 @@ class Product(BaseModel):
         description (str): A brief description of the product.
         price (float): The price of the product.
         phone (str): The phone number associated with the product.
+        url (Link): The URL of the product page.
     """
 
-    name: str
+    title: str
     description: str
     price: float
     phone: str
+    url: Link

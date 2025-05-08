@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from schemas.looking_for import LookingFor
-from services.srcrape_all_product_links_service import srcrape_all_product_links_service
+from services.scrape_product import scrape_product
+from services.srcrape_all_product_links import srcrape_all_product_links
 
 router = APIRouter()
 
@@ -15,7 +16,7 @@ async def olx_scraper(product_name: LookingFor) -> list:
     - A list of product links found on OLX.
     """
 
-    all_links = srcrape_all_product_links_service(product_name)
-
+    all_links = srcrape_all_product_links(product_name)
     products = [scrape_product(link) for link in all_links]
+    
     return products
